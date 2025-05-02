@@ -1,30 +1,33 @@
 <?php
 require_once '../models/Produto.php';
 
-$produtoModel = new Produto();
+$produto = new Produto();
 
-$nome = $_POST['nome'] ?? '';
-$preco = $_POST['preco'] ?? '';
-$descricao = $_POST['descricao'] ?? '';
-$id = $_POST['id'] ?? null;
-
-$imagem_nome = null;
-if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-    $extensao = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-    $imagem_nome = uniqid() . '.' . $extensao;
-    move_uploaded_file($_FILES['imagem']['tmp_name'], "../uploads/$imagem_nome");
-} else if (isset($_POST['imagem_atual'])) {
-    $imagem_nome = $_POST['imagem_atual'];
-}
-
+// Captura os dados do formulário
 $dados = [
-    'nome' => $nome,
-    'preco' => $preco,
-    'descricao' => $descricao,
-    'imagem' => $imagem_nome
+    'nome' => $_POST['nome'],
+    'preco' => $_POST['preco'],
+    'descricao' => $_POST['descricao'],
+    'tem_desconto' => isset($_POST['tem_desconto']) ? $_POST['tem_desconto'] : 0,
+    'preco_desconto' => ($_POST['tem_desconto'] == 1 && !empty($_POST['desconto'])) ? $_POST['desconto'] : null,
 ];
 
-$produtoModel->salvar($dados, $id);
+// Verifica se foi enviada uma nova imagem
+if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
+    $nomeImagem = uniqid() . '_' . $_FILES['imagem']['name'];
+    $caminhoDestino = '../uploads/' . $nomeImagem;
+    move_uploaded_file($_FILES['imagem']['tmp_name'], $caminhoDestino);
+    $dados['imagem'] = $nomeImagem;
+} else {
+    // Se estiver editando e não enviou nova imagem, mantém a imagem atual
+    $dados['imagem'] = $_POST['imagem_atual'] ?? null;
+}
 
+// Verifica se é edição ou novo cadastro
+$id = $_POST['id'] ?? null;
+
+$produto->salvar($dados, $id);
+
+// Redireciona para index.php após salvar
 header('Location: ../public/index.php');
 exit;

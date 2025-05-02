@@ -15,4 +15,8 @@ class ProdutoController {
     public function buscar($id) {
         return $this->produto->buscarPorId($id);
     }
+
+    public function salvar($dados, $id = null) {
+        return $this->produto->salvar($dados, $id);
+    }
 }

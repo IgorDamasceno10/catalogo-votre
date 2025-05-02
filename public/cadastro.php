@@ -23,7 +23,7 @@ if ($id) {
 <header>
   <div class="container">
     <div class="logo">
-      <img src="imagens/Votre (1) 1.png" alt="Logo Votre">
+    <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
     </div>
     <input type="text" placeholder="Busque aqui">
   </div>
@@ -33,7 +33,8 @@ if ($id) {
   <div class="cadastro-container">
 
     <div class="logo-cadastro">
-      <img src="imagens/Votre - comercial 1.png" alt="Logo Votre">
+    <img src="../uploads/Votre - comercial 1.png" alt="Logo">
+
     </div>
 
     <h1><?= $produto ? 'Editar Produto' : 'Cadastrar Produto' ?></h1>
@@ -67,6 +68,22 @@ if ($id) {
           <?php endif; ?>
           <input type="file" name="imagem">
         </div>
+
+        <!-- Novo campo para desconto -->
+        <div class="form-group">
+          <label>Produto com Desconto?</label>
+          <select name="tem_desconto" id="tem_desconto" onchange="toggleDescontoInput()" required>
+            <option value="0" <?= ($produto && $produto['tem_desconto'] == 0) ? 'selected' : '' ?>>Não</option>
+            <option value="1" <?= ($produto && $produto['tem_desconto'] == 1) ? 'selected' : '' ?>>Sim</option>
+          </select>
+        </div>
+
+        <!-- Campo de valor de desconto, mostrado somente se "Sim" for selecionado -->
+        <div class="form-group" id="desconto-container" style="display: <?= ($produto && $produto['tem_desconto'] == 1) ? 'block' : 'none' ?>;">
+          <label>Valor do Desconto:</label>
+          <input type="number" step="0.01" name="desconto" placeholder="Digite o valor do desconto" value="<?= htmlspecialchars($produto['desconto'] ?? '') ?>">
+        </div>
+
       </div>
 
       <button type="submit" class="btn-cadastrar"><?= $produto ? 'Salvar Alterações' : 'Cadastrar' ?></button>
@@ -99,10 +116,26 @@ if ($id) {
     </div>
 
     <div class="footer-logo">
-      <img src="imagens/Votre (1) 1.png" alt="Logo Footer">
+    <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
     </div>
   </div>
 </footer>
+
+<script>
+  // Função para exibir ou ocultar o campo de desconto com base na seleção
+  function toggleDescontoInput() {
+    const temDesconto = document.getElementById('tem_desconto').value;
+    const descontoContainer = document.getElementById('desconto-container');
+    if (temDesconto == '1') {
+      descontoContainer.style.display = 'block';
+    } else {
+      descontoContainer.style.display = 'none';
+    }
+  }
+
+  // Chama a função para garantir que o estado inicial do campo de desconto seja correto
+  toggleDescontoInput();
+</script>
 
 </body>
 </html>

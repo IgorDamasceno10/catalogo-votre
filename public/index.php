@@ -11,13 +11,13 @@ $produtos = $controller->listar();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Votre - Página Inicial</title>
-    <link rel="stylesheet" href="/CatalogoProdutos/frontend/css/index.css">
+    <link rel="stylesheet" href="../public/css/index.css">
 </head>
 <body>
 <header>
     <div class="top-bar">
         <div class="logo">
-            <img src="/CatalogoProdutos/frontend/imagens/Votre (1) 1.png" alt="Logo">
+            <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
         </div>
         <div class="search-bar">
             <input type="text" placeholder="Busque aqui">
@@ -42,10 +42,14 @@ $produtos = $controller->listar();
 <section class="banner">
     <div class="banner-container">
         <div class="banner-slide">
-            <img src="/CatalogoProdutos/frontend/imagens/1 2.png" alt="Banner 1" class="active">
-            <img src="/CatalogoProdutos/frontend/imagens/2 1.png" alt="Banner 2">
-            <img src="/CatalogoProdutos/frontend/imagens/Lorem Ipsum Dolor. 2 (1).png" alt="Banner 3">
+            <img src="../uploads/banner/1 2 (1).png" alt="Banner 1" class="desktop-banner">
+            <img src="../uploads/banner/Logo Marinho 1 (1).png" alt="Banner 1 Mobile" class="mobile-banner">
+            <img src="../uploads/banner/2 1 (2).png" alt="Banner 2" class="desktop-banner">
+            <img src="../uploads/banner/maranmobile.png" alt="Banner 2 Mobile" class="mobile-banner">
+            <img src="../uploads/banner/Lorem Ipsum Dolor. 2 (1).png" alt="Banner 3" class="desktop-banner">
+            <img src="../uploads/banner/vatzmobile.png" alt="Banner 3 Mobile" class="mobile-banner">
         </div>
+       
         <div class="banner-dots">
             <span class="dot active"></span>
             <span class="dot"></span>
@@ -55,22 +59,27 @@ $produtos = $controller->listar();
 </section>
 
 <main class="produtos-section">
+
+    <!-- Mais vendidos (sem desconto) -->
     <section class="produtos mais-vendidos">
         <h2>Mais vendidos</h2>
         <div class="produtos-grid">
             <?php foreach ($produtos as $produto): ?>
-                <a href="produto.php?id=<?= $produto['id'] ?>" class="produto-link">
-                    <div class="produto-item">
-                        <img src="../uploads/<?= $produto['imagem'] ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
-                        <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-                        <p><?= htmlspecialchars($produto['descricao'] ?? 'Sem descrição') ?></p>
-                        <p class="preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                    </div>
-                </a>
+                <?php if (empty($produto['preco_desconto'])): ?>
+                    <a href="produto.php?id=<?= $produto['id'] ?>" class="produto-link">
+                        <div class="produto-item">
+                            <img src="../uploads/<?= $produto['imagem'] ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+                            <h3><?= htmlspecialchars($produto['nome']) ?></h3>
+                            <p><?= htmlspecialchars($produto['descricao'] ?? 'Sem descrição') ?></p>
+                            <p class="preco">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+                        </div>
+                    </a>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
     </section>
 
+    <!-- Com Descontos -->
     <section class="produtos com-descontos">
         <h2>Com Descontos</h2>
         <div class="produtos-grid">
@@ -82,7 +91,7 @@ $produtos = $controller->listar();
                             <h3><?= htmlspecialchars($produto['nome']) ?></h3>
                             <p><?= htmlspecialchars($produto['descricao'] ?? 'Sem descrição') ?></p>
                             <p class="preco desconto">
-                                <span class="preco-antigo">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></span>
+                                <small class="preco-antigo">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></small><br>
                                 R$ <?= number_format($produto['preco_desconto'], 2, ',', '.') ?>
                             </p>
                         </div>
@@ -91,6 +100,7 @@ $produtos = $controller->listar();
             <?php endforeach; ?>
         </div>
     </section>
+
 </main>
 
 <footer>
@@ -115,11 +125,12 @@ $produtos = $controller->listar();
             </ul>
         </div>
         <div class="footer-logo">
-            <img src="/CatalogoProdutos/frontend/imagens/Votre (1) 1.png" alt="Logo Footer">
+            <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
         </div>
     </div>
 </footer>
 
-<script src="/CatalogoProdutos/frontend/js/index.js"></script>
+<script src="/../catalogo/public/js/index.js"></script>
+
 </body>
 </html>

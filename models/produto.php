@@ -21,11 +21,26 @@ class Produto {
 
     public function salvar($dados, $id = null) {
         if ($id) {
-            $stmt = $this->pdo->prepare("UPDATE produtos SET nome = ?, preco = ?, descricao = ?, imagem = ? WHERE id = ?");
-            return $stmt->execute([$dados['nome'], $dados['preco'], $dados['descricao'], $dados['imagem'], $id]);
+            $stmt = $this->pdo->prepare("UPDATE produtos SET nome = ?, preco = ?, descricao = ?, imagem = ?, tem_desconto = ?, preco_desconto = ? WHERE id = ?");
+            return $stmt->execute([
+                $dados['nome'],
+                $dados['preco'],
+                $dados['descricao'],
+                $dados['imagem'],
+                $dados['tem_desconto'],
+                $dados['preco_desconto'],
+                $id
+            ]);
         } else {
-            $stmt = $this->pdo->prepare("INSERT INTO produtos (nome, preco, descricao, imagem) VALUES (?, ?, ?, ?)");
-            return $stmt->execute([$dados['nome'], $dados['preco'], $dados['descricao'], $dados['imagem']]);
+            $stmt = $this->pdo->prepare("INSERT INTO produtos (nome, preco, descricao, imagem, tem_desconto, preco_desconto) VALUES (?, ?, ?, ?, ?, ?)");
+            return $stmt->execute([
+                $dados['nome'],
+                $dados['preco'],
+                $dados['descricao'],
+                $dados['imagem'],
+                $dados['tem_desconto'],
+                $dados['preco_desconto']
+            ]);
         }
     }
 }
