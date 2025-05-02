@@ -1,5 +1,5 @@
 
-# 🛍️ Catálogo de Produtos c
+# 🛍️ Catálogo de Produtos 
 
 Este é um sistema web simples e responsivo de **catálogo de produtos**, desenvolvido com **PHP (sem frameworks)**, **Mysql** e frontend em **HTML, CSS e JavaScript**. O sistema lista produtos e permite a separação visual dos produtos com ou sem desconto
 
@@ -52,7 +52,7 @@ Tabela: `produtos`
   - HTML5
   - CSS3
   - JavaScript (puro)
-  - Carrossel com lógica JavaScript e classes CSS responsivas
+  
 
 - **Backend:**
   - PHP (sem frameworks)
