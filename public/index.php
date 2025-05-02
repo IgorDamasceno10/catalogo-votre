@@ -1,6 +1,7 @@
 <?php
 require_once '../controllers/ProdutoController.php';
 
+// Cria uma instância do controlador e busca todos os produtos
 $controller = new ProdutoController();
 $produtos = $controller->listar();
 ?>
@@ -16,15 +17,18 @@ $produtos = $controller->listar();
 <body>
 <header>
     <div class="top-bar">
-        <div class="logo">
-            <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
-        </div>
+        <!-- Logo da empresa -->
+        <a href="index.php">
+        <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
+      </a>
+        <!-- Barra de pesquisa -->
         <div class="search-bar">
             <input type="text" placeholder="Busque aqui">
             <button type="submit">🔍</button>
         </div>
     </div>
     <nav class="menu">
+        <!-- Menu de navegação -->
         <ul>
             <li><a href="em-breve.php">Limpeza</a></li>
             <li><a href="em-breve.php">Higiene Pessoal</a></li>
@@ -33,7 +37,6 @@ $produtos = $controller->listar();
             <li><a href="em-breve.php">Categoria 5</a></li>
             <li><a href="em-breve.php">Categoria 6</a></li>
             <li><a href="em-breve.php">Categoria 7</a></li>
-            <li><a href="em-breve.php">Categoria 8</a></li>
             <li><a href="cadastro.php" class="cadastrar-produto-link">+ Cadastrar Produto</a></li>
         </ul>
     </nav>
@@ -41,6 +44,7 @@ $produtos = $controller->listar();
 
 <section class="banner">
     <div class="banner-container">
+        <!-- Banner com imagens alternando (desktop e mobile) -->
         <div class="banner-slide">
             <img src="../uploads/banner/1 2 (1).png" alt="Banner 1" class="desktop-banner">
             <img src="../uploads/banner/Logo Marinho 1 (1).png" alt="Banner 1 Mobile" class="mobile-banner">
@@ -51,6 +55,7 @@ $produtos = $controller->listar();
         </div>
        
         <div class="banner-dots">
+            <!-- Pontos para navegação do banner -->
             <span class="dot active"></span>
             <span class="dot"></span>
             <span class="dot"></span>
@@ -60,7 +65,7 @@ $produtos = $controller->listar();
 
 <main class="produtos-section">
 
-    <!-- Mais vendidos (sem desconto) -->
+    <!-- Exibição dos produtos mais vendidos (sem desconto) -->
     <section class="produtos mais-vendidos">
         <h2>Mais vendidos</h2>
         <div class="produtos-grid">
@@ -79,7 +84,7 @@ $produtos = $controller->listar();
         </div>
     </section>
 
-    <!-- Com Descontos -->
+    <!-- Exibição dos produtos com desconto -->
     <section class="produtos com-descontos">
         <h2>Com Descontos</h2>
         <div class="produtos-grid">
@@ -105,6 +110,7 @@ $produtos = $controller->listar();
 
 <footer>
     <div class="footer-grid">
+        <!-- Categorias no rodapé -->
         <div class="footer-column">
             <h3>Limpeza</h3>
             <ul>
@@ -124,6 +130,7 @@ $produtos = $controller->listar();
                 <li>Suave</li>
             </ul>
         </div>
+        <!-- Logo da empresa no rodapé -->
         <div class="footer-logo">
             <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
         </div>

@@ -11,7 +11,9 @@
 <header>
   <div class="container">
     <div class="logo">
-      <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
+    <a href="index.php">
+        <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
+    </a>
     </div>
     <input type="text" placeholder="Busque aqui">
   </div>
