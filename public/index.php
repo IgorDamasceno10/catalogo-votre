@@ -26,14 +26,14 @@ $produtos = $controller->listar();
     </div>
     <nav class="menu">
         <ul>
-            <li><a href="#">Limpeza</a></li>
-            <li><a href="#">Higiene Pessoal</a></li>
-            <li><a href="#">Categoria 3</a></li>
-            <li><a href="#">Categoria 4</a></li>
-            <li><a href="#">Categoria 5</a></li>
-            <li><a href="#">Categoria 6</a></li>
-            <li><a href="#">Categoria 7</a></li>
-            <li><a href="#">Categoria 8</a></li>
+            <li><a href="em-breve.php">Limpeza</a></li>
+            <li><a href="em-breve.php">Higiene Pessoal</a></li>
+            <li><a href="em-breve.php">Categoria 3</a></li>
+            <li><a href="em-breve.php">Categoria 4</a></li>
+            <li><a href="em-breve.php">Categoria 5</a></li>
+            <li><a href="em-breve.php">Categoria 6</a></li>
+            <li><a href="em-breve.php">Categoria 7</a></li>
+            <li><a href="em-breve.php">Categoria 8</a></li>
             <li><a href="cadastro.php" class="cadastrar-produto-link">+ Cadastrar Produto</a></li>
         </ul>
     </nav>

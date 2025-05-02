@@ -1,4 +1,5 @@
-/* Reset básico */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 *,
 *::before,
 *::after {
@@ -13,7 +14,6 @@ body {
   color: #333;
 }
 
-/* Header */
 header {
   background-color: #1a1a1a;
   padding: 10px 20px;
@@ -36,93 +36,42 @@ header input[type="text"] {
   border: none;
 }
 
-/* Cadastro de Produto */
-main.cadastro-produto {
-  background-color: #f3f3f3;
-  padding: 40px 0;
+main.em-breve-main {
   display: flex;
   justify-content: center;
-}
-
-.cadastro-container {
-  background: white;
-  padding: 40px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 800px;
+  align-items: center;
+  padding: 80px 20px;
+  min-height: 60vh;
   text-align: center;
 }
 
-.logo-cadastro img {
-  width: 150px;
+.mensagem {
+  background: white;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  max-width: 600px;
+}
+
+.mensagem h1 {
+  font-size: 32px;
   margin-bottom: 20px;
+  color: #1a1a1a;
 }
 
-h1 {
-  margin-bottom: 30px;
-  font-size: 24px;
+.animado {
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
-.form-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.form-group {
-  flex: 1 1 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.form-group.full {
-  flex: 1 1 100%;
-}
-
-label {
-  font-weight: 500;
-  margin-bottom: 5px;
-  font-size: 14px;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-textarea {
-  resize: vertical;
-  height: 150px;
-}
-
-.btn-cadastrar {
-  background: black;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+.mensagem p {
   font-size: 16px;
-  margin-top: 20px;
-  width: 200px;
-  align-self: center;
-  transition: background 0.3s;
-}
-
-.btn-cadastrar:hover {
-  background: #333;
+  color: #666;
 }
 
 /* Footer */
@@ -161,17 +110,13 @@ footer ul li {
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .form-grid {
-    flex-direction: column;
+  header input[type="text"] {
+    width: 150px;
   }
 
   .footer-grid {
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  header input[type="text"] {
-    width: 150px;
   }
 }
