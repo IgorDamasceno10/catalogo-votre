@@ -35,7 +35,7 @@ if ($id) {
 
     <div class="logo-cadastro">
     <a href="index.php">
-        <img src="/Catalogo/uploads/Votre (1) 1.png" alt="Logo">
+    <img src="../uploads/Votre - comercial 1.png" alt="Logo">
     </a>
     </div>
 

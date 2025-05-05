@@ -18,7 +18,7 @@ Este é um sistema web simples e responsivo de **catálogo de produtos**, desenv
 
 ## 🧱 Modelo Relacional
 
-Banco de dados: `Mysql`  
+Banco de dados: `catalogo`  
 Tabela: `produtos`
 
 | Campo           | Tipo     | Descrição                                               |
@@ -99,7 +99,7 @@ CATALOGO/
 ### 2. Colocar os arquivos na pasta correta
 - Copie todos os arquivos do projeto para:
   ```
-  C:\xampp\htdocs\catalogo
+  C:\xampp\htdocs\catalogo-votre
   ```
 
 ### 3. Iniciar o servidor Apache
@@ -110,7 +110,7 @@ CATALOGO/
 ### 4. Acessar o sistema
 Abra o navegador e acesse:
 ```
-http://localhost/catalogo/public/index.php
+http://localhost/catalogo-votre/public/index.php
 ```
 
 ### 5. Banco de dados
